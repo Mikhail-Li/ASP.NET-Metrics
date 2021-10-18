@@ -1,21 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.ComponentModel;
 using LiveCharts;
 using LiveCharts.Wpf;
-
 
 namespace UIMetricsManager
 {
@@ -24,23 +11,77 @@ namespace UIMetricsManager
     /// </summary>
     public partial class MaterialCards : UserControl, INotifyPropertyChanged
     {
+
+        private double _ramAvg;
+        private double _cpuAvg;
+        private double _networkMax;
+
+        public double RamAverage
+        {
+            get { return _ramAvg; }
+            set
+            {
+                _ramAvg = value;
+                OnPropertyChanged("RamAverage");
+            }
+        }
+        public double CpuAverage
+        {
+            get { return _cpuAvg; }
+            set
+            {
+                _cpuAvg = value;
+                OnPropertyChanged("CpuAverage");
+            }
+        }
+
+        public double NetworkMax
+        {
+            get { return _networkMax; }
+            set
+            {
+                _networkMax = value;
+                OnPropertyChanged("NetworkMax");
+            }
+        }
+        public SeriesCollection CpuSeries { get; set; }
+
+        public SeriesCollection RamSeries { get; set; }
+
+        public SeriesCollection NetworkSeries { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public MaterialCards()
         {
             InitializeComponent();
+                          
+            RamSeries = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Values = new ChartValues<double> ()
+                }
+            };
 
-            ColumnServiesValues = new SeriesCollection
+            CpuSeries = new SeriesCollection
             {
                 new ColumnSeries
                 {
                     Values = new ChartValues<double> ()
                 }
             };
+
+            NetworkSeries = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Values = new ChartValues<double> ()
+                }
+            };
+
             DataContext = this;
         }
-
-        public SeriesCollection ColumnServiesValues { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName = null)
         {
@@ -52,5 +93,6 @@ namespace UIMetricsManager
         {
             TimePowerChart.Update(true);
         }
+
     }
 }

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Data;
 using System.Linq;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using MetricsManager.DAL.Models;
 using MetricsManager.DAL.Interfaces;
-using MetricsManager.Requests;
 using MetricsCommon;
 using Dapper;
 

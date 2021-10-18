@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Diagnostics;
 using Quartz;
 using MetricsManager.DAL.Interfaces;
-using MetricsManager.DAL.Repositories;
-using MetricsManager.Responses;
 using MetricsManager.Responses.DTO;
 using MetricsManager.Requests;
 using MetricsManager.DAL.Models;
 using MetricsManager.Client;
-using Microsoft.Extensions.DependencyInjection;
-using Dapper;
 
 namespace MetricsManager.Jobs
 {

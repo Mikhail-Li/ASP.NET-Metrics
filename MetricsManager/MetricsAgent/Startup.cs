@@ -1,18 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Data.SQLite;
-using System.IO;
 using MetricsAgent.DAL.Repositories;
 using MetricsAgent.DAL.Interfaces;
 using MetricsAgent.DAL;
@@ -78,7 +68,7 @@ namespace MetricsAgent
             services.AddSingleton<NetworkMetricJob>();
             services.AddSingleton(new JobSchedule(
                 jobType: typeof(NetworkMetricJob),
-                cronExpression: "0/5 * * * * ?"));
+                cronExpression: "0/3 * * * * ?"));
 
             services.AddSingleton<RamMetricJob>();
             services.AddSingleton(new JobSchedule(

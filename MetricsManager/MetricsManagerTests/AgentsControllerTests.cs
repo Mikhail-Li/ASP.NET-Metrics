@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using MetricsManager.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
-using MetricsManager;
 using Microsoft.Extensions.Logging;
 using Moq;
 using AutoMapper;

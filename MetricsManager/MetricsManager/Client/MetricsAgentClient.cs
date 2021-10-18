@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Net.Http;
 using System.Text.Json;
 using MetricsManager.Responses;
-using MetricsManager.Responses.DTO;
 using MetricsManager.Requests;
 using Microsoft.Extensions.Logging;
-using System.IO;
 
 
 namespace MetricsManager.Client

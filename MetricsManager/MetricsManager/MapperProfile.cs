@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using MetricsManager.DAL.Models;
 using MetricsManager.Responses.DTO;
 

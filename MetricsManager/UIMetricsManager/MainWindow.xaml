@@ -8,8 +8,8 @@
         Title="MainWindow" Height="600" Width="1000">
     <Grid>
         <StackPanel>
-            <local:MaterialCards Grid.Column="0" Grid.Row="0" x:Name="CpuChart"></local:MaterialCards>
-            <Button Width="400" Height="50" Click="Button_Click">Привет</Button>
+            <local:MaterialCards Grid.Column="0" Grid.Row="0" x:Name="Chart"></local:MaterialCards>
+            <Button Width="200" Height="50" Click="Button_Click" Content="Get Data"/>
         </StackPanel>
     </Grid>
 </Window>

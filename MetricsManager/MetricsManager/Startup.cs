@@ -1,17 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Data.SQLite;
 using System.IO;
 using MetricsCommon.Jobs;
 using AutoMapper;
@@ -22,11 +14,9 @@ using Quartz.Impl;
 using MetricsManager.DAL;
 using MetricsManager.DAL.Repositories;
 using MetricsManager.DAL.Interfaces;
-using MetricsManager.DAL.Models;
 using MetricsManager.Jobs;
 using MetricsManager.Client;
 using Polly;
-using Dapper;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
@@ -102,19 +92,13 @@ namespace MetricsManager
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "API сервиса менеджеора сбора метрик",
-                    Description = "Здесь можно протестировать api предлагаемого менеджера метрик",
-                    TermsOfService = new Uri("https://example.com/terms"),
+                    Title = "API сервиса менеджера сбора метрик",
+                    Description = "Ниже можно протестировать api предлагаемого менеджера метрик",
                     Contact = new OpenApiContact
                     {
                         Name = "Lipunov M",
-                        Email = string.Empty,
+                        Email = "mmlipunov@mail.ru",
                         Url = new Uri("https://www.facebook.com/mmlipunov/"),
-                    },
-                    License = new OpenApiLicense
-                    {
-                        Name = "Open Source license",
-                        Url = new Uri("https://example.com/license"),
                     }
                 });
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";

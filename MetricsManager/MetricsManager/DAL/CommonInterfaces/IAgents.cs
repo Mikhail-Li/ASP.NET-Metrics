@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MetricsCommon;
-using MetricsManager.DAL.Models;
+﻿using System.Collections.Generic;
 
 namespace MetricsManager.DAL.CommonInterfaces
 {

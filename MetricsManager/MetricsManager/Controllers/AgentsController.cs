@@ -1,17 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using MetricsManager.DAL;
 using MetricsManager.DAL.Models;
 using MetricsManager.DAL.Interfaces;
-using MetricsManager.DAL.Repositories;
 using MetricsManager.Responses;
 using MetricsManager.Responses.DTO;
-
 using AutoMapper;
 
 namespace MetricsManager.Controllers
@@ -41,10 +34,12 @@ namespace MetricsManager.Controllers
         /// 
         ///     в теле (body) указывают:
         ///     { 
+        ///         "аgentId": 0,
         ///         "agentAddress": "http://localhost:6555" 
         ///     }* 
         ///     
-        /// * поле "аgentId" не заполняется (приваевается автоматически). 
+        /// * поле "аgentId" приваевается автоматически: очередной, следующий за максимальным существующим. 
+        ///   Если указать существующий, оставить незаполненным или убрать из body, то ошибки не будет. 
         /// 
         /// </remarks>
         /// <returns>OK</returns>
